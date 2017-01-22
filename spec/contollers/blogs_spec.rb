@@ -8,7 +8,6 @@ RSpec.describe BlogsController, type: :controller do
              # exercise
              post :create
   
-             p blogs_model
              # verify
              actual = Blog.find_by(title: blogs_model.title)
              expect(actual).not_to be nil
