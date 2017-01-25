@@ -8,6 +8,8 @@ RSpec.describe Blog, :type => :model do
             blog_model = FactoryGirl.create(:blog, writer:'asopasomaso')
       
             p blog_model
+            
+            
         end
     end
   end

@@ -6,10 +6,11 @@ FactoryGirl.define do
     word "MyText"
     writer "MyText"
     
-    # after(:build) do |matome, evaluator|
-    #   matome.instagram_media << FactoryGirl.build(:instagram_medium, :with_instagram_user)
+    after(:create) do |relation_blog|
+      create(:relation_blog,
+             category_id: create(:category) ,
+             blog_id: create(:blog))
+    end
 
-    #   matome.matome_hash_tags << FactoryGirl.build(:matome_hash_tag, id: evaluator.trans_matome_hash_tag_id)
-    # end
   end
 end
