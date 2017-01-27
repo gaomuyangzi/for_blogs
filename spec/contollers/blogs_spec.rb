@@ -4,12 +4,11 @@ RSpec.describe BlogsController, type: :controller do
       context '正常系' do
           it '新しいモデルが生成される' do
              # setup
-             blogs_model = FactoryGirl.create_list(:blog,5)
+             blogs_model = FactoryGirl.create(:blog)
+
              # exercise
              post :create
   
-  
-  #git pushしたい
              # verify
              actual = Blog.find_by(title: blogs_model.title)
              expect(actual).not_to be nil

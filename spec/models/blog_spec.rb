@@ -5,13 +5,8 @@ RSpec.describe Blog, :type => :model do
     context "BlogのFactoryを作成した場合" do
         it "テストデータが作成される" do 
          blogs_model = FactoryGirl.create_list(:blog,10)
-            blog_model = FactoryGirl.create(:blog, writer:'asopasomaso')
-      
-            p blog_model
-            
-            
+         p blogs_model
         end
     end
   end
 end
-

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161231054006) do
+ActiveRecord::Schema.define(version: 20170127061346) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20161231054006) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "cakes", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "price",      limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
@@ -28,6 +35,16 @@ ActiveRecord::Schema.define(version: 20161231054006) do
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+
+  create_table "engineers", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "number",     limit: 255
+    t.string   "section",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "engineers", ["number"], name: "index_engineers_on_number", unique: true, using: :btree
 
   create_table "relation_blogs", force: :cascade do |t|
     t.integer  "category_id", limit: 4, null: false
@@ -39,6 +56,18 @@ ActiveRecord::Schema.define(version: 20161231054006) do
   add_index "relation_blogs", ["blog_id"], name: "index_relation_blogs_on_blog_id", using: :btree
   add_index "relation_blogs", ["category_id"], name: "index_relation_blogs_on_category_id", using: :btree
 
+  create_table "relation_cakes", force: :cascade do |t|
+    t.integer  "engineer_id", limit: 4, null: false
+    t.integer  "cake_id",     limit: 4, null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "relation_cakes", ["cake_id"], name: "index_relation_cakes_on_cake_id", using: :btree
+  add_index "relation_cakes", ["engineer_id"], name: "index_relation_cakes_on_engineer_id", using: :btree
+
   add_foreign_key "relation_blogs", "blogs", on_update: :cascade, on_delete: :cascade
   add_foreign_key "relation_blogs", "categories", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "relation_cakes", "cakes", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "relation_cakes", "engineers", on_update: :cascade, on_delete: :cascade
 end
