@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :cake do
     name "MyString"
-    price 1
+    sequence(:price) { |n| n }
   end
 end
