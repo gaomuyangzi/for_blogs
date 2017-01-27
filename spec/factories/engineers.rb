@@ -3,6 +3,6 @@ FactoryGirl.define do
     name "MyString"
     #連番はこの書き方だと、1から始まる
     sequence(:number) { |n| n }
-    section "MyString"
+    sequence(:section){ ["ねこ部","いぬ部","はむすたー部","くま部"].sample }
   end
 end
