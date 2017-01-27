@@ -7,10 +7,9 @@ RSpec.describe EngineersController, :type => :controller do
              engineers_model = FactoryGirl.create_list(:engineer,10)
              cakes_model = FactoryGirl.create_list(:cake,3)
              relarion_cakes_model = FactoryGirl.create_list(:relation_cake,3)
-             
-             
+            
              p engineers_model
-             # exercise
+            # exercise
             #  post :create
   
              # verify
