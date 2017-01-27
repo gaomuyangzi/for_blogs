@@ -3,7 +3,8 @@
 FactoryGirl.define do
   factory :engineer do
     name "MyString"
-    number "MyString"
+    #社員番号は連番にする
+    sequence(:number) {|n| n}
     section "MyString"
   end
 end
