@@ -2,7 +2,14 @@
 
 FactoryGirl.define do
   factory :relation_cake do
-    engineer_id 1
-    cake_id 1
+    transient do
+      trans_engineer_id { generate :number_6 }
+      trans_cake_id { generate :number_6 }
+    end
+     after(:create) do |user, evaluator|
+    if evaluator.friends_count > 0
+      create_list :friendship, evaluator.friends_count, user: user
+    end
+   end
   end
 end
