@@ -5,9 +5,7 @@ FactoryGirl.define do
     
     sequence(:engineer_id) { |n| n }
     sequence(:cake_id) { |n| n }
-    
-    
-    
+
     
     # transient do
     #   trans_engineers_id 1
