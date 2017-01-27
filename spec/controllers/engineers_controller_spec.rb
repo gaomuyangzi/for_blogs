@@ -9,6 +9,8 @@ RSpec.describe EngineersController, :type => :controller do
              relarion_cakes_model = FactoryGirl.create_list(:relation_cake,3)
             
              p engineers_model
+             
+             
             # exercise
             #  post :create
   
