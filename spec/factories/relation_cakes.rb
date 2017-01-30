@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :relation_cake do
-    
     sequence(:engineer_id) { |n| n }
     sequence(:cake_id) { |n| n }
     
