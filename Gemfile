@@ -39,6 +39,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 3.0'
   gem 'database_cleaner'
   gem 'faker'
+  gem 'faker-japanese'
 
 
   # その他必要に応じて
