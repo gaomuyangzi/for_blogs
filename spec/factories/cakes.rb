@@ -4,7 +4,5 @@ FactoryGirl.define do
   factory :cake do
     name "MyString"
     sequence(:price){ [*500..750].sample }
-    
     end
   end
-
