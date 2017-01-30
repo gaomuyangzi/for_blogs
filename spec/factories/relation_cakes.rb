@@ -5,9 +5,6 @@ FactoryGirl.define do
     sequence(:engineer_id) { |n| n }
     sequence(:cake_id) { |n| n }
     
-    
-    
-    
     # transient do
     #   trans_engineers_id 1
     #   trans_cake_id 1
@@ -23,23 +20,3 @@ FactoryGirl.define do
     #   end
   end
 end
-
-# FactoryGirl.define do
-#   factory :relation_matome_hash_tag do
-
-#     transient do
-#       trans_matome_id { generate :number_6 }
-#       trans_matome_hash_tag_id { generate :number_6 }
-#     end
-
-#     after(:build) do |relation_matome_hash_tag, evaluator|
-#       matome                                   = FactoryGirl.build(:matome,
-#                                                                   :with_user,
-#                                                                   id:                       evaluator.trans_matome_id,
-#                                                                   trans_matome_hash_tag_id: evaluator.trans_matome_hash_tag_id)
-#       relation_matome_hash_tag.matome          = matome
-#       relation_matome_hash_tag.matome_hash_tag = matome.matome_hash_tags[0]
-#     end
-#   end
-# end
-
